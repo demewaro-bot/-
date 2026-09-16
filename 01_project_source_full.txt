@@ -1,0 +1,66 @@
+
+===== BEGIN PROJECT FILE: README.md =====
+# ぷにぷに 自動代行 Bot
+
+zip 内の `level5-gen`（L5 ID 自動生成）を統合した Discord Bot です。
+
+## セットアップ
+
+1. `token.json.example` → `token.json` にコピーし Bot トークンを設定
+2. `pip install -r requirements.txt`
+3. （アカウント作成代行）Firefox + geckodriver を PATH に追加
+
+## 起動
+
+```bat
+StartBot.bat
+```
+
+## コマンド
+
+| コマンド | 説明 |
+|---|---|
+| `/ぷにぷに パネル設置` | 自動周回 / アカウント作成パネルを設置 |
+| `/ぷにぷに ストック` | L5 ID ストック数 |
+| `/ぷにぷに 設定` | 値段変更 |
+
+## パネル（参考 UI 準拠）
+
+- **自動周回代行** — 10円/周回、青 embed、ボタン「自動周回を依頼する」「ステージID確認」
+- **アカウント作成代行** — 200円、緑 embed、ボタン「アカウント作成を依頼する」
+
+## 環境変数
+
+| 変数 | 説明 |
+|---|---|
+| `PUNIPUNI_GUILD_ID` | スラッシュ即反映用ギルド ID |
+| `PUNIPUNI_MOCK=1` | 代行を MOCK（PayPay のみ） |
+| `PUNIPUNI_POOL_AUTO=0` | L5 自動補充 OFF |
+| `PUNIPUNI_POOL_TARGET` | ストック目標（既定 100） |
+
+## 旧 level5-gen
+
+`level5-gen/` に元の Replit 版が残っています。新 Bot は `extensions/punipuni/l5_account.py` を使用します。
+
+## PayPay
+
+`tusmtusm` と同様 `extensions/paypay_helpers.py` をこのフォルダに置くと PayPay 受付が有効になります。
+
+===== END PROJECT FILE: README.md =====
+
+
+===== BEGIN PROJECT FILE: StartBot.bat =====
+@echo off
+cd /d "%~dp0"
+title Punipuni Bot
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\start_bot.ps1"
+set ERR=%errorlevel%
+echo.
+echo Exit code: %ERR%
+pause
+exit /b %ERR%
+
+===== END PROJECT FILE: StartBot.bat =====
+
+
+===== BEGIN PROJECT FILE: __MACOSX/level5-gen/._#U7e67#Uff68#U7e5d#Uff69#U7e5d#Uff7c#U83eb#Uff6e#U8c41#Uff63.txt =====

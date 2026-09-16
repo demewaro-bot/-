@@ -1,0 +1,5 @@
+file=ぷにぷに(1).ipa
+bytes=95995864
+sha256=6f81ddf0570a84384b09e012f647a290e850bd353333974f3b40a9e9c89199b7
+encoding=base64
+part_size_chars=10000000
